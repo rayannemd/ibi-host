@@ -1,0 +1,115 @@
+.grid-page-container {
+  width: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.grid-page-container h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.legend-container {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  padding: 0.75rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.legend-item {
+  display: flex;
+  background-color: #fff;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.color-box {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.rooms-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+/* --- ESTILOS DO CARD ATUALIZADOS --- */
+.room-card {
+  position: relative; /* ESSENCIAL para posicionar a bolinha de status */
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  background-color: #fff; /* Cor de fundo padrão para todos os cards */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.room-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.room-number {
+  margin: 0;
+  margin-top: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #555;
+}
+
+/* Ícone com cor padrão */
+.room-status-icon {
+  font-size: 3rem;
+  line-height: 1;
+  color: #495057; /* Cor cinza escura padrão para o ícone */
+}
+.room-status-icon svg{
+    background-color: #fff;
+}
+/* --- NOVOS ESTILOS PARA A BOLINHA DE STATUS --- */
+.status-dot {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #fff; /* Borda branca para destacar do fundo do card */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Cores de status aplicadas à caixinha da legenda e à bolinha de status */
+/* A propriedade 'background-color' agora colore ambas! */
+.status-livre { background-color: #28a745; }
+.status-reservado { background-color: #ffc107; }
+.status-ocupado { background-color: #dc3545; }
+.status-desconhecido { background-color: #6c757d; } /* Cinza para status desconhecido */
+
+/* Mensagens de feedback (sem alteração) */
+.feedback-message {
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 4rem;
+  color: #666;
+}
+.feedback-message.error { color: #dc3545; }
+
+.grid-page-container{
+  font-weight: bold;
+  font-size: 1.5rem;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+        }
+
+        .menu-login{
+            padding: 50px;
+        }
+
+    </style>
+    
+</head>
+<body>
+    <h1>Login de Usuário</h1><br>
+    <form action="/login" method="POST" class="menu-login">
+        <label>Login:</label><br><br>
+        <input type="text" class="login" name="login"><br>
+        <label>Senha:</label><br><br>
+        <input type="password" class="senha" name="senha"><br>
+        <button type="submit">Entrar</button>
+    </form>
+
+</body>
+</html>

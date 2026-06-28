@@ -1,0 +1,82 @@
+/* Container principal do Dashboard */
+.dashboard-container {
+  width: 100%;
+  padding: 1rem; /* Padding um pouco menor para telas pequenas */
+  box-sizing: border-box;
+}
+
+.dashboard-container h1 {
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem; /* Fonte um pouco menor para mobile */
+  color: #333;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 0.5rem;
+}
+
+/* --- ABORDAGEM "MOBILE-FIRST" (Padrão para telas pequenas) --- */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Layout responsivo */
+  gap: 1rem;
+  padding: 1rem;
+  transition: all 0.3s ease-in-out;
+  min-height: 300px; /* evita colapso visual inicial */
+  
+  /* Em telas pequenas, tudo fica em uma única coluna */
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "checkins"
+    "checkouts"
+    "quartos";
+}
+
+/* Associa cada div do JSX com sua área no grid */
+.grid-item-checkins {
+  grid-area: checkins;
+}
+
+.grid-item-checkouts {
+  grid-area: checkouts;
+}
+
+.grid-item-quartos {
+  grid-area: quartos;
+}
+
+/* Garante que os wrappers de grid se comportem bem */
+.grid-item-checkins,
+.grid-item-checkouts,
+.grid-item-quartos {
+  display: flex;
+}
+
+/* Adiciona o cursor de "ponteiro" para o card clicável */
+.clickable-card {
+  cursor: pointer;
+}
+
+
+/* --- ESTILOS PARA TELAS MAIORES (Tablets e Desktops) --- */
+/* A mágica acontece aqui: estas regras só se aplicam se a tela tiver 768px de largura ou mais. */
+@media (min-width: 768px) {
+  .dashboard-container {
+    padding: 2rem; /* Retorna ao padding maior */
+    min-width: 600px;
+  }
+
+  .dashboard-container h1 {
+    font-size: 2rem; /* Retorna ao tamanho de fonte maior */
+  }
+
+  .dashboard-grid {
+    /* AQUI ESTÁ A MUDANÇA QUE VOCÊ QUERIA */
+    max-width: 1100px; /* Aumenta significativamente a largura máxima em telas grandes */
+    gap: 1.5rem; /* Aumenta o espaçamento */
+    
+    /* Retorna ao layout de duas colunas que você projetou */
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "checkins checkouts"
+      "quartos  quartos";
+  }
+}

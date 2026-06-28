@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: lightgray;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            height: 100vh;
+        }
+
+        .divCadastro{
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 10px 10px 1px gray;
+            padding: 20px;
+            
+
+        }
+    </style>
+</head>
+<body>
+    <title>Form</title>
+    <h1>IbiHost</h1>
+    <div class="divCadastro">        
+        <h1>Cadastro de Cliente</h1>
+        <form action="/cliente" method="POST">
+            <label>Nome:</label>
+            <input type="text" id="nome" name="nome" required><br><br>
+            <label>CPF:</label>
+            <input type="text" id="cpf" name="cpf" required><br><br>
+            <label>Telefone:</label>
+            <input type="text" id="telefone" name="telefone" required><br><br>
+            <label>Endereço:</label>
+            <input type="text" id="endereco" name="endereco" required><br><br>
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
+</body>
+</html>

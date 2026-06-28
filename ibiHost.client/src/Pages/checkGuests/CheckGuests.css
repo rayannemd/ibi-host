@@ -1,0 +1,25 @@
+.containerCheckGuests {
+    display: flex;
+    height: 100vh; /* Ocupa a altura total da tela */
+    width: 100vw; /* Ocupa a largura total da tela */
+  }
+  
+.containerFormCheckGuests{
+  margin: 0 auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* alinha verticalmente */
+  align-items: center;      /* alinha horizontalmente */
+  padding: 2rem;
+}
+.buttonInput{
+  padding: 0.5rem 2rem;
+  margin-top: 15px;
+  color: white;
+  font-weight: bold;
+  background-color: #2c4e1c;
+  border-radius: 30px;
+  cursor: pointer;
+  align-items: center;
+}

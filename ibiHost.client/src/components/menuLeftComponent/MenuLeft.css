@@ -1,0 +1,118 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: start; /* Garante que o conteúdo fique à esquerda */
+    align-items: start;
+    background-color: #C5E0B5;
+}
+
+.containerMenuLeft {
+    background-color: #395723;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-right: 2rem;
+    align-self: flex-start;
+    
+
+}
+.headerMenuLeft{
+    display: flex;
+    margin-bottom: 3rem;
+    background-color: #395723;
+
+
+}
+.containerMenuLeft img{
+    background-color: #395723;
+
+    width: 100px;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    margin-right: 1rem;
+
+}
+.containerMenuLeft h1{
+    font-size: 40px;
+    color: #A8D18D;
+    margin: auto 0;
+    margin-bottom: 2rem;
+    background-color: #395723;
+}
+.optionItem {
+  display: flex; /* ← ESSENCIAL */
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.75rem; /* Espaço entre ícone e texto */
+  cursor: pointer;
+  border: 3px solid #A8D18D;
+  padding: 10px;
+  border-radius: 16px;
+  background-color: #395723;
+  margin-bottom: 20px;
+}
+.optionItem:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease-in-out;
+}
+.optionItem span{
+    background-color: #395723;
+    color: #f6fff0;
+    font-size: 25px;
+}
+.optionItem svg{
+    font-size: 22px;
+    background-color: #395723;
+    color: #A8D18D;
+    margin-right: 0.5rem;
+}
+.containerOptionsMenuLeft, .optionsMenuLeft{
+    background-color: #395723;
+    
+}
+.headerMenuLeft img{
+    cursor: pointer;
+}
+
+.homeIconContainer {
+    cursor: pointer;
+    /* Alinha o container no início do eixo cruzado (esquerda) */
+    align-self: flex-start; 
+        background-color: #395723;
+        padding: 8px;
+        border-radius: 6px;
+        width: fit-content;
+
+}
+
+/* Estilo do ícone de casa (SVG) */
+.homeIconContainer svg {
+    font-size: 35px; /* Tamanho do ícone */
+    color: #A8D18D;   /* Cor do ícone, igual aos outros */
+    transition: all 0.2s ease-in-out;
+    background-color: #395723; /* Garante que o fundo do ícone seja igual ao container */
+    border-radius: 6px;         /* Para deixar com borda suave, igual ao container */
+    padding: 4px;
+
+}
+
+
+
+/* Efeito de hover para o ícone */
+.homeIconContainer:hover svg {
+    color: #f6fff0; /* Muda a cor ao passar o mouse */
+    transform: scale(1.1); /* Aumenta um pouco de tamanho */
+}
+
+.menuContentWrapper {
+  background-color: #395723;
+  width: 100%;
+}

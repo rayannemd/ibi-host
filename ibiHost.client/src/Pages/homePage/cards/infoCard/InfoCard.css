@@ -1,0 +1,46 @@
+.infoCard {
+  /* --- MUDANÇAS PRINCIPAIS --- */
+  width: 100%;  /* REMOVIDO: width: 300px; -> AGORA: Ocupa 100% da largura do seu contêiner de grid */
+  height: 100%; /* REMOVIDO: height: 300px; -> AGORA: Ocupa 100% da altura do seu contêiner de grid */
+  min-height: 150px; /* Adiciona uma altura mínima para garantir que não fique muito pequeno em telas estreitas */
+
+  /* --- ESTILOS MANTIDOS E MELHORADOS --- */
+  background-color: #E2F0D9;
+  border-radius: 1rem;
+  padding: 1.5rem; /* Um pouco mais de preenchimento interno */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem; /* Adiciona um espaço entre o título e o valor */
+  
+  transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+  /* O cursor pointer só é necessário aqui, pois o card inteiro é clicável */
+  cursor: pointer; 
+}
+
+.infoCard:hover {
+  transform: translateY(-5px); /* Efeito de elevação mais sutil que o scale */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+.infoCard span{
+    background-color: #E2F0D9;
+
+}
+.cardTitle {
+  font-family: 'Pontano Sans', sans-serif;
+  font-size: 1.5rem; /* Tamanho um pouco mais contido para se adaptar melhor */
+  color: #374151;
+  text-align: center;
+  /* REMOVIDO: background-color e cursor, pois já estão no pai .infoCard */
+}
+
+.cardValue {
+  font-family: 'Pontano Sans', sans-serif;
+  font-size: 1.8rem; /* Tamanho um pouco mais contido */
+  font-weight: bold;
+  color: #000;
+  /* REMOVIDO: background-color e cursor */
+}

@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #C5E0B5; /* Fundo geral do formulário */
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  
+}
+.inputWrapper svg {
+  background-color: #e6f3da;
+}
+.checkIcon{
+    background-color: #e6f3da;
+
+}
+.inputGroup {
+ 
+  border-radius: 1rem;
+  width: auto;
+  max-width: 800px;
+  text-align: center;
+}
+
+.inputGroup h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.2rem;
+  color: #395723;
+  font-weight: 700;
+  background-color: transparent;
+}
+
+.inputGroup p {
+  font-size: 1rem;
+  color: #9C9C9C;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  background-color: transparent;
+
+}
+
+/* Wrapper para o input com ícone */
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  background-color: #e6f3da;
+  padding: 0.8rem 1rem;
+  border-radius: 0.3rem;
+  margin-bottom: 0rem;
+  max-width: 100%;
+  min-width: 500px;
+  position: relative;
+}
+
+.inputWrapper .icon {
+  color: #9C9C9C;
+  margin-right: 1rem;
+  font-size: 1.2rem;
+}
+#cpfCheckGuests{
+    background-color: #e6f3da;
+
+}
+
+.inputWrapper input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 1rem;
+  flex: 1;
+  color: #333;
+}
+
+/* Botão de login */
+.inputGroup button {
+  background-color: #1f3d0f;
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.inputGroup button:hover {
+  background-color: #2e5a19;
+}
+
+/* Link de "Esqueceu a senha?" */
+.forgot-password {
+  text-align: right;
+  font-size: 0.9rem;
+  color: #9c9c9c;
+  margin-top: -0.8rem;
+  margin-bottom: 1.2rem;
+  cursor: pointer;
+}
+.containerViewReservationsOfGuests, span{
+    background-color: #e6f3da;
+
+}
+.containerViewReservationsOfGuests strong{
+    background-color: #e6f3da;
+
+}

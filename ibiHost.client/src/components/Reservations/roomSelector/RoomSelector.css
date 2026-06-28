@@ -1,0 +1,96 @@
+.room-selector-container {
+  position: relative; /* Essencial para posicionar a lista suspensa */
+  width: 100%;
+}
+
+/* Reutilizando a classe do FormComponent para manter o espaçamento vertical */
+.room-selector-container .inputGroup {
+  margin-bottom: 1.2rem;
+}
+
+/* Imita o estilo do inputWrapper do FormComponent */
+.room-selector-container .inputWrapper {
+  display: flex;
+  align-items: center;
+  background-color: #e6f3da;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0 10px;
+  height: 50px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.room-selector-container .inputWrapper:hover {
+  border-color: #007bff;
+}
+
+.room-selector-container .icon {
+  color: #888;
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+
+.selected-value {
+  flex-grow: 1;
+  background-color: #e6f3da;
+  color: #333;
+  font-size: 1rem;
+}
+
+.dropdown-arrow-icon {
+  font-size: 2rem;
+  color: #888;
+}
+
+/* Estilos da lista suspensa (o drop-down) */
+.room-options-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  list-style: none;
+  padding: 0.5rem 0;
+  margin: 0.25rem 0 0 0;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.room-options-list li {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  background-color: #e6f3da;
+  transition: background-color 0.2s;
+}
+
+.room-options-list li:hover {
+  background-color: #395723;
+  color: #fff;
+}
+
+.room-options-list li.selected {
+  background-color: #e0eaff;
+  font-weight: bold;
+}
+
+/* A bolinha de status */
+.status-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 12px;
+  flex-shrink: 0; /* Impede que a bolinha encolha */
+}
+
+/* Cores da bolinha */
+.status-livre { background-color: #28a745; }
+.status-reservado { background-color: #ffc107; }
+.status-ocupado { background-color: #dc3545; }
+.status-desconhecido { background-color: #6c757d; }
