@@ -32,8 +32,8 @@ function Dashboard() {
         };
 
 
-        const checkinsEndpoint = 'http://localhost:8080/api/proximos-checkins';
-        const checkoutsEndpoint = 'http://localhost:8080/api/proximos-checkouts';
+        const checkinsEndpoint = `${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/proximos-checkins`;
+        const checkoutsEndpoint = `${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/proximos-checkouts`;
 
         // Busca os dados
         fetchData(checkinsEndpoint, setCheckInData);

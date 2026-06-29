@@ -26,61 +26,57 @@ import com.lucas.firstwebapp.repository.ReservaRepository;
 
 public class QuartoController {
 
-@Autowired
-private QuartoRepository quartoRepository;
+    @Autowired
+    private QuartoRepository quartoRepository;
 
-@Autowired
-private ReservaRepository reservaRepository;
+    @Autowired
+    private ReservaRepository reservaRepository;
 
-@Autowired
-private CheckinRepository checkinRepository;
+    @Autowired
+    private CheckinRepository checkinRepository;
 
-@PostMapping("/status-quartos")
-public ResponseEntity<List<Map<String, Object>>> verificarStatusQuartos(@RequestBody Map<String, Object> dados) {
-    LocalDate dataCheckin = LocalDate.parse((String) dados.get("dataCheckin"));
-    int dias = (int) dados.get("dias");
-    LocalDate dataCheckout = dataCheckin.plusDays(dias);
+    @PostMapping("/status-quartos")
+    public ResponseEntity<List<Map<String, Object>>> verificarStatusQuartos(@RequestBody Map<String, Object> dados) {
+        LocalDate dataCheckin = LocalDate.parse((String) dados.get("dataCheckin"));
+        int dias = (int) dados.get("dias");
+        LocalDate dataCheckout = dataCheckin.plusDays(dias);
 
-    List<Quarto> quartos = quartoRepository.findAll();
-    List<Reserva> reservas = reservaRepository.findAll();
+        List<Quarto> quartos = quartoRepository.findAll();
+        List<Reserva> reservas = reservaRepository.findAll();
 
-    List<Map<String, Object>> statusQuartos = new ArrayList<>();
+        List<Map<String, Object>> statusQuartos = new ArrayList<>();
 
-    for (Quarto quarto : quartos) {
-        String status = "LIVRE";
+        for (Quarto quarto : quartos) {
+            String status = "LIVRE";
 
-        for (Reserva reserva : reservas) {
-            if (reserva.getQuarto().getNumero() == (quarto.getNumero())) {
-                LocalDate checkinExistente = reserva.getDataCheckin();
-                LocalDate checkoutExistente = reserva.getDataCheckout();
+            for (Reserva reserva : reservas) {
+                if (reserva.getQuarto().getNumero() == (quarto.getNumero())) {
+                    LocalDate checkinExistente = reserva.getDataCheckin();
+                    LocalDate checkoutExistente = reserva.getDataCheckout();
 
-                boolean conflita =
-                        !dataCheckout.isBefore(checkinExistente) &&
-                        !dataCheckin.isAfter(checkoutExistente);
+                    boolean conflita = !dataCheckout.isBefore(checkinExistente) &&
+                            !dataCheckin.isAfter(checkoutExistente);
 
-                if (conflita) {
-                    Optional<Checkin> checkinOpt = checkinRepository.findByReserva(reserva);
-                    if(checkinOpt.isPresent()){
-                        Checkin checkin = checkinOpt.get();
-                        status = !checkin.isCheckoutRealizado() ? "OCUPADO" : "LIVRE";
+                    if (conflita) {
+                        Optional<Checkin> checkinOpt = checkinRepository.findByReserva(reserva);
+                        if (checkinOpt.isPresent()) {
+                            Checkin checkin = checkinOpt.get();
+                            status = !checkin.isCheckoutRealizado() ? "OCUPADO" : "LIVRE";
 
-                    }
-                    else{
-                        status = "RESERVADO";
+                        } else {
+                            status = "RESERVADO";
+                        }
                     }
                 }
             }
+
+            Map<String, Object> quartoStatus = new HashMap<>();
+            quartoStatus.put("numero", quarto.getNumero());
+            quartoStatus.put("status", status);
+
+            statusQuartos.add(quartoStatus);
         }
 
-        Map<String, Object> quartoStatus = new HashMap<>();
-        quartoStatus.put("numero", quarto.getNumero());
-        quartoStatus.put("status", status);
-
-        statusQuartos.add(quartoStatus);
+        return ResponseEntity.ok(statusQuartos);
     }
-
-    return ResponseEntity.ok(statusQuartos);
-}
-
-
 }

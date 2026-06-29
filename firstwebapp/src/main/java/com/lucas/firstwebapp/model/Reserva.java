@@ -1,18 +1,24 @@
 package com.lucas.firstwebapp.model;
 
 import java.time.LocalDate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "reserva")
+@Getter
+@Setter
+@NoArgsConstructor
 public class Reserva {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,83 +46,4 @@ public class Reserva {
     @ManyToOne
     @JoinColumn(name = "cpf_cliente", referencedColumnName = "cpf")
     private Cliente cliente;
-
-    // @OneToOne
-    // @JoinColumn(name = "id_pagamento", referencedColumnName = "id")
-    // private Pagamento pagamento;
-
-    public Long getId() {
-        return id;
-    }
-
-    public int getQtdPessoas() {
-        return qtdPessoas;
-    }
-
-
-    public Quarto getQuarto() {
-        return quarto;
-    }
-
-    public LocalDate getDataCheckin() {
-        return dataCheckin;
-    }
-
-    public LocalDate getDataCheckout() {
-        return dataCheckout;
-    }
-
-    public float getValorReserva() {
-        return valorReserva;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public boolean isCheckinRealizado() {
-        return checkinRealizado;
-    }
-
-    // public Pagamento getPagamento() {
-    //     return pagamento;
-    // }
-    
-    
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setQtdPessoas(int qtdPessoas) {
-        this.qtdPessoas = qtdPessoas;
-    }
-
-    public void setQuarto(Quarto quarto) {
-        this.quarto = quarto;
-    }
-
-    public void setDataCheckin(LocalDate dataCheckin) {
-        this.dataCheckin = dataCheckin;
-    }
-
-    public void setDataCheckout(LocalDate dataCheckout) {
-        this.dataCheckout = dataCheckout;
-    }
-
-    public void setValorReserva(float valorReserva) {
-        this.valorReserva = valorReserva;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-    // public void setPagamento(Pagamento pagamento) {
-    //     this.pagamento = pagamento;
-    // }
-
-    public void setCheckinRealizado(boolean checkinRealizado) {
-        this.checkinRealizado = checkinRealizado;
-    }
-    
 }

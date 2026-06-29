@@ -21,18 +21,13 @@ import com.lucas.firstwebapp.repository.ReservaRepository;
 
 @RestController
 @RequestMapping("/api")
-
-
-
-
 public class CheckinController {
 
-     @Autowired
+    @Autowired
     private CheckinRepository checkinRepository;
 
     @Autowired
     private ReservaRepository reservaRepository;
-
 
     @PostMapping("/listaCheckins")
     public ResponseEntity<List<Checkin>> listarCheckinsPorCpf(@RequestBody String cpf) {
@@ -48,9 +43,6 @@ public class CheckinController {
         return ResponseEntity.ok(listaCheckins);
     }
     
-    // Additional methods for handling check-in operations can be added here
-
-
     @PostMapping("/cadastrarCheckin")
     public ResponseEntity<?> cadastrarCheckin(@RequestBody Checkin checkin){
     try {

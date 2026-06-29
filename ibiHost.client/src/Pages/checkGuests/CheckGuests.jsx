@@ -18,7 +18,7 @@ function CheckGuests() {
         try {
             const token = sessionStorage.getItem("token");
 
-            const response = await fetch("http://localhost:8080/api/checkGuests", {
+            const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/checkGuests`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

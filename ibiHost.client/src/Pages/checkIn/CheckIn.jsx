@@ -32,7 +32,7 @@ function CheckIn() {
             
             const token = sessionStorage.getItem("token");
 
-            const response = await fetch("http://localhost:8080/api/listaReservas", {
+            const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/listaReservas`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

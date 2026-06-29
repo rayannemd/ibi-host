@@ -3,10 +3,15 @@ package com.lucas.firstwebapp.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "cliente")
+@Getter
+@Setter
+@NoArgsConstructor
 public class Cliente {
     @Id
     private String cpf;
@@ -14,47 +19,4 @@ public class Cliente {
     private String endereco;
     private String telefone;
     private String email;
-
-    public String getNome(){
-        return this.nome;
-    }
-
-    public String getEndereco(){
-        return this.endereco;
-    }
-
-
-    public String getCpf(){
-        return this.cpf;
-    }
-
-    public String getTelefone(){
-        return this.telefone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setNome(String nome){
-        this.nome = nome;
-    }
-
-    public void setEndereco(String endereco){
-        this.endereco = endereco;
-    } 
-
-    public void setCpf(String cpf){
-        this.cpf = cpf;
-    }
-
-    public void setTelefone(String telefone){
-        this.telefone = telefone;
-    }
 }
-
-

@@ -58,7 +58,7 @@ function RegisterGuest() {
           const token = sessionStorage.getItem("token");
 
           const response = await
-          fetch("http://localhost:8080/api/registerGuest", {
+          fetch(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/registerGuest`, {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",

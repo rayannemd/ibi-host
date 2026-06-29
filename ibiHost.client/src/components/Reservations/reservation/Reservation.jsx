@@ -58,7 +58,7 @@ function Reservation() {
     try {
       const token = sessionStorage.getItem("token");
 
-      const response = await fetch("http://localhost:8080/api/cadastrarReserva", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/cadastrarReserva`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -75,7 +75,7 @@ function Reservation() {
       });
 
       if (response.status === 201) {
-        const send = await fetch("http://localhost:8080/api/enviarEmail" , {
+        const send = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/enviarEmail` , {
           method: "POST" , 
           headers: {
             "Content-Type": "application/json" , 
@@ -109,7 +109,7 @@ function Reservation() {
     try {
       const token = sessionStorage.getItem("token");
 
-      const response = await fetch("http://localhost:8080/api/status-quartos", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/status-quartos`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
