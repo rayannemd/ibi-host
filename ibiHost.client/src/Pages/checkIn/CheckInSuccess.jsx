@@ -12,7 +12,7 @@ function CheckInSuccess() {
      const handleSendSimulation = async () => {
         const token = sessionStorage.getItem("token");
 
-        const send = await fetch("http://localhost:8080/api/enviarEmail" , {
+        const send = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/enviarEmail` , {
             method: "POST" , 
             headers: {
               "Content-Type": "application/json" ,

@@ -1,0 +1,17 @@
+# Configuração de build do Netlify para o frontend (Vite/React).
+# Caso o "Base directory" no Netlify seja definido como ibiHost.client,
+# estes caminhos são relativos a essa pasta.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Vite 6 exige Node >= 18. Fixa a versão usada no build do Netlify.
+[build.environment]
+  NODE_VERSION = "20"
+
+# Fallback de SPA: toda rota desconhecida serve o index.html (React Router).
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

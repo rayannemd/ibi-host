@@ -29,7 +29,7 @@ function CheckOut() {
             // Realiza a requisição POST para a API do backend.
             const token = sessionStorage.getItem("token");
 
-            const response = await fetch("http://localhost:8080/api/listaCheckins", {
+            const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/listaCheckins`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

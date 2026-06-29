@@ -1,19 +1,17 @@
-
-
 services:
-  mysql:
-    image: mysql:8
+  postgres:
+    image: postgres:16
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: senha123
-      MYSQL_DATABASE: meubanco
+      POSTGRES_PASSWORD: senha123
+      POSTGRES_DB: meubanco
     ports:
-      - "3306:3306"
+      - "5432:5432"
     volumes:
-      - mysql-data:/var/lib/mysql
+      - postgres-data:/var/lib/postgresql/data
       - ./dump.sql:/docker-entrypoint-initdb.d/dump.sql:ro
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      test: ["CMD-SHELL", "pg_isready -U postgres -d meubanco"]
       interval: 5s
       timeout: 10s
       retries: 10
@@ -21,12 +19,14 @@ services:
   backend:
     build: ./firstwebapp
     depends_on:
-      mysql:
+      postgres:
         condition: service_healthy
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/meubanco
-      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/meubanco
+      SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: senha123
+      # Segredo JWT apenas para desenvolvimento local. Em produção, use um valor próprio.
+      JWT_SECRET: "F3xl2/OnFTgbTGXqwrQqH0rFy9j49UWzP1p4bnMV3rc="
     ports:
       - "8080:8080"
 
@@ -34,13 +34,15 @@ services:
     build: ./ibiHost.client
     depends_on:
       - backend
+    environment:
+      VITE_API_URL: http://localhost:8080
     ports:
       - "5173:5173"
     volumes:
       - ./ibiHost.client:/app
-      - /app/node_modules  
+      - /app/node_modules
 
     command: npm run dev -- --host
 
 volumes:
-  mysql-data:
+  postgres-data:
