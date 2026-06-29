@@ -18,7 +18,6 @@ import com.lucas.firstwebapp.model.Checkout;
 import com.lucas.firstwebapp.repository.CheckinRepository;
 import com.lucas.firstwebapp.repository.CheckoutRepository;
 
-
 @RestController
 @RequestMapping("/api")
 
@@ -51,7 +50,6 @@ public class CheckoutController {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body("Erro interno: " + e.getMessage());
-
         }
     }
 
