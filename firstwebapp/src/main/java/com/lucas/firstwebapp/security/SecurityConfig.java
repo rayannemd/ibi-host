@@ -22,6 +22,8 @@ public class SecurityConfig {
 public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
     http
         .cors(Customizer.withDefaults())
+        // CSRF desabilitado: API REST stateless autenticada por JWT (sem sessão/cookies),
+        // portanto não há vetor de CSRF a proteger.
         .csrf(csrf -> csrf.disable())
         .authorizeHttpRequests(auth -> auth
             .requestMatchers("/api/login").permitAll()
