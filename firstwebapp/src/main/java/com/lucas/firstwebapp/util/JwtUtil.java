@@ -4,6 +4,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -23,6 +24,15 @@ public class JwtUtil {
     @Value("${jwt.expiration-ms:3600000}")
     private long expirationMs;
 
+    // Falha rápido no startup se o segredo estiver ausente ou curto demais,
+    // em vez de estourar uma exceção genérica (500) só ao gerar/validar token.
+    @PostConstruct
+    void validarConfiguracao() {
+        if (secret == null || secret.getBytes(StandardCharsets.UTF_8).length < 32) {
+            throw new IllegalStateException(
+                "Configuração inválida: defina JWT_SECRET (jwt.secret) com no mínimo 32 caracteres (256 bits) para HS256.");
+        }
+    }
 
     private SecretKey getSigningKey() {
         return Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));

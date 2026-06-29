@@ -25,8 +25,9 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/meubanco
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: senha123
-      # Segredo JWT apenas para desenvolvimento local. Em produção, use um valor próprio.
-      JWT_SECRET: "F3xl2/OnFTgbTGXqwrQqH0rFy9j49UWzP1p4bnMV3rc="
+      # JWT_SECRET vem do ambiente (shell ou arquivo .env local, não versionado).
+      # O default abaixo é só um placeholder de dev (>=32 chars); nunca usar em produção.
+      JWT_SECRET: ${JWT_SECRET:-dev-only-jwt-secret-troque-em-producao-1234567890}
     ports:
       - "8080:8080"
 
